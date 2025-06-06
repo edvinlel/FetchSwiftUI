@@ -23,22 +23,6 @@ struct Recipe: Decodable {
         case youtubeUrl = "youtube_url"
         case uuid, cuisine, name
     }
-    
-    var photoLargeAsURL: URL? {
-        URL(string: photoUrlLarge)
-    }
-    
-    var photoSmallAsURL: URL? {
-        URL(string: photoUrlSmall)
-    }
-    
-    var webSourceAsURL: URL? {
-        URL(string: sourceUrl)
-    }
-    
-    var youtubeSourceAsURL: URL? {
-        URL(string: youtubeUrl)
-    }
 }
 
 enum CuisineFlags: String {
