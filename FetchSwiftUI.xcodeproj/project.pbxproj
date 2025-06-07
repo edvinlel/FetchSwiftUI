@@ -6,6 +6,10 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		E4449BFB2DF37F3D00ABAAAD /* FetchSwiftUIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4449BFA2DF37F3D00ABAAAD /* FetchSwiftUIApp.swift */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		E4449C082DF37F3F00ABAAAD /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -25,6 +29,7 @@
 
 /* Begin PBXFileReference section */
 		E4449BF72DF37F3D00ABAAAD /* FetchSwiftUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FetchSwiftUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E4449BFA2DF37F3D00ABAAAD /* FetchSwiftUIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchSwiftUIApp.swift; sourceTree = "<group>"; };
 		E4449C072DF37F3F00ABAAAD /* FetchSwiftUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FetchSwiftUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E4449C112DF37F3F00ABAAAD /* FetchSwiftUIUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FetchSwiftUIUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -76,6 +81,7 @@
 			isa = PBXGroup;
 			children = (
 				E4449BF92DF37F3D00ABAAAD /* FetchSwiftUI */,
+				E4449BFA2DF37F3D00ABAAAD /* FetchSwiftUIApp.swift */,
 				E4449C0A2DF37F3F00ABAAAD /* FetchSwiftUITests */,
 				E4449C142DF37F3F00ABAAAD /* FetchSwiftUIUITests */,
 				E4449BF82DF37F3D00ABAAAD /* Products */,
@@ -236,6 +242,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E4449BFB2DF37F3D00ABAAAD /* FetchSwiftUIApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

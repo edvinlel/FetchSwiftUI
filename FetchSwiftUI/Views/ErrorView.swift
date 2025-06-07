@@ -8,10 +8,15 @@
 import SwiftUI
 
 struct ErrorView: View {
+    let errorMessage: String
+    let tryAgainAction: () -> Void
+    
     var body: some View {
-        Text("Error loading data.")
+        Text("Error")
+            .fontWeight(.semibold)
+        Text(errorMessage)
         Button {
-            print("button")
+            tryAgainAction()
         } label: {
             Text("Try Again")
                 .padding(2)
@@ -26,5 +31,7 @@ struct ErrorView: View {
 }
 
 #Preview {
-    ErrorView()
+    ErrorView(errorMessage: "Error loading data.", tryAgainAction: {
+        
+    })
 }

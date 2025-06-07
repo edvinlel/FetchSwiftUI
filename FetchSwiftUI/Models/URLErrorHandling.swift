@@ -17,7 +17,7 @@ enum NetworkError: Error {
 extension String {
     func asURL() -> URL? {
         guard let url = URL(string: self) else {
-            let error = NetworkError.invalidURL(self)
+            let _ = NetworkError.invalidURL(self)
             return nil
         }
         
