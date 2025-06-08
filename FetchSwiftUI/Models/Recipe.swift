@@ -29,6 +29,16 @@ struct Recipe: Codable, Identifiable {
         case youtubeUrl = "youtube_url"
         case uuid, cuisine, name
     }
+    
+    init(cuisine: String, name: String, photoUrlLarge: String?, photoUrlSmall: String?, sourceUrl: String?, uuid: UUID, youtubeUrl: String?) {
+        self.cuisine = cuisine
+        self.name = name
+        self.photoUrlLarge = photoUrlLarge
+        self.photoUrlSmall = photoUrlSmall
+        self.sourceUrl = sourceUrl
+        self.uuid = uuid
+        self.youtubeUrl = youtubeUrl
+    }
 }
 
 extension String {

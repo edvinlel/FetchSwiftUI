@@ -35,5 +35,8 @@ final class RecipeViewModel: ObservableObject {
         recipe.youtubeUrl?.asURL()
     }
     
+    var uuid: UUID {
+        recipe.uuid
+    }
     
 }
