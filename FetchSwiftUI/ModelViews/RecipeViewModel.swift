@@ -7,26 +7,33 @@
 
 import Foundation
 
-final class RecipeViewModel {
+@MainActor
+final class RecipeViewModel: ObservableObject {
     private let recipe: Recipe
     
     init(recipe: Recipe) {
         self.recipe = recipe
     }
     
+    var getRecipe: Recipe {
+        recipe
+    }
+    
     var photoLargeAsURL: URL? {
-        URL(string: recipe.photoUrlLarge)
+        recipe.photoUrlLarge?.asURL()
     }
     
     var photoSmallAsURL: URL? {
-        URL(string: recipe.photoUrlSmall)
+        recipe.photoUrlSmall?.asURL()
     }
     
     var webSourceAsURL: URL? {
-        URL(string: recipe.sourceUrl)
+        recipe.sourceUrl?.asURL()
     }
     
     var youtubeSourceAsURL: URL? {
-        URL(string: recipe.youtubeUrl)
+        recipe.youtubeUrl?.asURL()
     }
+    
+    
 }

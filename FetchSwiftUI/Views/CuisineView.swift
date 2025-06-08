@@ -12,12 +12,18 @@ struct CuisineView: View {
     let cuisine: String
     
     var body: some View {
-        VStack {
-            Text(emojiFlag)
-                .font(.system(size: 40))
-            Text(cuisine)
-                .fontWeight(.semibold)
-                .padding(.bottom, 5)
+        Button {
+            print("Button Pressed")
+        } label: {
+            VStack {
+                Text(emojiFlag)
+                    .font(.system(size: 40))
+                Text(cuisine)
+                    .fontWeight(.semibold)
+                    .padding(.bottom, 5)
+                    .foregroundStyle(.black)
+            }
+            
         }
         .frame(width: 140, height: 110)
         .background(
@@ -29,6 +35,9 @@ struct CuisineView: View {
                 )
             
         )
+
+        
+        
         
     }
 }

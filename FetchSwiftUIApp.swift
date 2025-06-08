@@ -9,9 +9,24 @@ import SwiftUI
 
 @main
 struct FetchSwiftUIApp: App {
+    @StateObject private var viewModel = RecipeListViewModel()
+    
     var body: some Scene {
         WindowGroup {
-            RecipeListView()
+            if viewModel.isInitialLoading {
+                ProgressView()
+                    .task {
+                        await viewModel.fetchRecipes()
+                    }
+            } else if let errorMessage = viewModel.errorMessage {
+                ErrorView(errorMessage: errorMessage) {
+                    Task {
+                        await viewModel.fetchRecipes()
+                    }
+                }
+            } else {
+                RecipeListView(viewModel: viewModel)
+            }
         }
     }
 }

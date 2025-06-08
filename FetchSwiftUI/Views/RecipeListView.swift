@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct RecipeListView: View {
+    @ObservedObject var viewModel: RecipeListViewModel
+    
     var body: some View {
         NavigationView {
             ScrollView {
@@ -19,7 +21,10 @@ struct RecipeListView: View {
                     
                     ScrollView(.horizontal, showsIndicators: false) {
                         LazyHStack {
-                            
+                            // CuisineView will go here
+                            ForEach(viewModel.allCuisines, id: \.self) { cuisine in
+                                CuisineView(emojiFlag: cuisine.cuisineFlag, cuisine: cuisine)
+                            }
                         }
                         .padding(.horizontal)
                         .frame(maxWidth: .infinity, alignment: .leading)
@@ -29,11 +34,15 @@ struct RecipeListView: View {
             }
             .navigationTitle("Recipes")
             .background(Color(.systemGray6))
+            .onAppear {
+                Task {
+                    await viewModel.fetchRecipes()
+                }
+            }
         }
-        
     }
 }
 
 #Preview {
-    RecipeListView()
+    RecipeListView(viewModel: RecipeListViewModel())
 }

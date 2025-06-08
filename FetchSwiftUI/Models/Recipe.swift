@@ -7,14 +7,20 @@
 
 import Foundation
 
-struct Recipe: Decodable {
-    var cuisine: String
-    var name: String
-    var photoUrlLarge: String
-    var photoUrlSmall: String
-    var sourceUrl: String
-    var uuid: String
-    var youtubeUrl: String
+struct Response: Codable {
+    let recipes: [Recipe]
+}
+
+struct Recipe: Codable, Identifiable {
+    let cuisine: String
+    let name: String
+    let photoUrlLarge: String?
+    let photoUrlSmall: String?
+    let sourceUrl: String?
+    let uuid: UUID
+    let youtubeUrl: String?
+    
+    var id: UUID { uuid }
     
     enum CodingKeys: String, CodingKey {
         case photoUrlLarge = "photo_url_large"
@@ -25,17 +31,22 @@ struct Recipe: Decodable {
     }
 }
 
-enum CuisineFlags: String {
-    case malaysian = "🇲🇾"
-    case british = "🇬🇧"
-    case american = "🇺🇸"
-    case canadian = "🇨🇦"
-    case italian = "🇮🇹"
-    case tunisian = "🇹🇳"
-    case french = "🇫🇷"
-    case greek = "🇬🇷"
-    case polish = "🇵🇱"
-    case portuguese = "🇵🇹"
-    case russian = "🇷🇺"
-    case croatian = "🇭🇷"
+extension String {
+    var cuisineFlag: String {
+        switch self {
+        case "Malaysian": return "🇲🇾"
+        case "British": return "🇬🇧"
+        case "American": return "🇺🇸"
+        case "Canadian": return "🇨🇦"
+        case "Italian": return "🇮🇹"
+        case "Tunisian": return "🇹🇳"
+        case "French": return "🇫🇷"
+        case "Greek": return "🇬🇷"
+        case "Polish": return "🇵🇱"
+        case "Portuguese": return "🇵🇹"
+        case "Russian": return "🇷🇺"
+        case "Croatian": return "🇭🇷"
+        default: return "🏳️" 
+        }
+    }
 }
