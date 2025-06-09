@@ -34,7 +34,7 @@ struct RecipeListView: View {
                     
                     ForEach(viewModel.recipeViewModels, id: \.uuid) { recipe in
                         NavigationLink {
-                            // Destination
+                            RecipeDetailView(recipe: recipe.getRecipe)
                         } label: {
                             RecipeView(recipe: recipe.getRecipe)
                                 .foregroundStyle(Color.black)

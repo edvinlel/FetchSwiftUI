@@ -10,8 +10,8 @@ import SwiftUI
 struct RecipeView: View {
     let recipe: Recipe
     
-    private var youTubeIconName: String {
-        recipe.youtubeUrl != nil ? "play.fill" : "play"
+    private var youTubeIcon: String {
+        recipe.youtubeUrl != nil ? "▶️" : ""
     }
     
     var body: some View {
@@ -37,10 +37,8 @@ struct RecipeView: View {
                 Spacer()
             }
             
-            Image(systemName: youTubeIconName)
+            Text(youTubeIcon)
                 .font(.system(size: 24))
-                .foregroundColor(.black)
-                .shadow(radius: 2)
                 .padding(12)
         }
         .frame(height: 150)
