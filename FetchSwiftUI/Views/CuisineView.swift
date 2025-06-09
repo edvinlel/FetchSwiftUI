@@ -10,10 +10,11 @@ import SwiftUI
 struct CuisineView: View {
     let emojiFlag: String
     let cuisine: String
+    let viewModel: RecipeListViewModel
     
     var body: some View {
-        Button {
-            print("Button Pressed")
+        NavigationLink {
+            CuisineList(cuisine: cuisine, viewModel: viewModel)
         } label: {
             VStack {
                 Text(emojiFlag)
@@ -23,21 +24,15 @@ struct CuisineView: View {
                     .padding(.bottom, 5)
                     .foregroundStyle(.black)
             }
-            
+            .frame(width: 140, height: 110)
+            .background(
+                RoundedRectangle(cornerRadius: 12.0)
+                    .fill(Color.white)
+            )
         }
-        .frame(width: 140, height: 110)
-        .background(
-            RoundedRectangle(cornerRadius: 12.0)
-                .fill(Color.white)
-            
-        )
-
-        
-        
-        
     }
 }
 
 #Preview {
-    CuisineView(emojiFlag: "🇺🇸", cuisine: "American")
+    CuisineView(emojiFlag: "🇺🇸", cuisine: "American", viewModel: RecipeListViewModel())
 }

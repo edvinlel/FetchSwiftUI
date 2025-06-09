@@ -22,26 +22,15 @@ struct RecipeListView: View {
                     ScrollView(.horizontal, showsIndicators: false) {
                         LazyHStack {
                             ForEach(viewModel.allCuisines, id: \.self) { cuisine in
-                                CuisineView(emojiFlag: cuisine.cuisineFlag, cuisine: cuisine)
+                                CuisineView(emojiFlag: cuisine.cuisineFlag, cuisine: cuisine, viewModel: viewModel)
                             }
                         }
                         .padding(.horizontal)
                         .frame(maxWidth: .infinity, alignment: .leading)
-                        
-                       
                     }
                     .padding(.bottom, 50)
                     
-                    ForEach(viewModel.recipeViewModels, id: \.uuid) { recipe in
-                        NavigationLink {
-                            RecipeDetailView(recipe: recipe.getRecipe)
-                        } label: {
-                            RecipeView(recipe: recipe.getRecipe)
-                                .foregroundStyle(Color.black)
-                                .padding(.horizontal, 20)
-                        }
-                    }
-                    
+                    RecipeList(recipeViewModel: viewModel.recipeViewModels)
                 }
                 .padding(.top, 45)
             }
