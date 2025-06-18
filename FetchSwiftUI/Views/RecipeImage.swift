@@ -11,15 +11,27 @@ struct RecipeImage: View {
     let url: URL?
     
     var body: some View {
-        AsyncImage(url: url) { image in
-            image
-                .resizable()
-                .aspectRatio(contentMode: .fill)
-                .clipped()
-                
-        } placeholder: {
-            Image(systemName: "fork.knife")
-                .frame(width: 50, height: 50, alignment: .center)
+        if let url = url {
+            CacheAsyncImage(url: url) { phase in
+                switch phase {
+                    case .empty:
+                        ProgressView()
+                    case .success(let image):
+                        image
+                        .resizable()
+                        .aspectRatio(contentMode: .fill)
+                        .clipped()
+                    
+                    // I do not like the way this is setup and I would like to implement the ErrorView and try again, but I have used
+                    // up so much time as it is.
+                    case .failure(_):
+                        Image(systemName: "questionmark")
+                    @unknown default:
+                        Image(systemName: "questionmark")
+                }
+            }
+        } else {
+            Image(systemName: "questionmark")
         }
     }
 }

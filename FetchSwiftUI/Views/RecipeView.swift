@@ -18,7 +18,7 @@ struct RecipeView: View {
 
         ZStack(alignment: .bottomTrailing) {
             HStack(alignment: .top) {
-                RecipeImage(url: recipe.photoUrlSmall?.asURL())
+                RecipeImage(url: recipe.photoUrlLarge?.asURL())
                     .frame(width: 150, height: 100)
                     .clipShape(RoundedRectangle(cornerRadius: 12.0))
                     .padding(.leading, 20)

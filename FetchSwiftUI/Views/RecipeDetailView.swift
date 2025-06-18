@@ -20,14 +20,8 @@ struct RecipeDetailView: View {
                 RecipeImage(url: recipe.photoUrlLarge?.asURL())
                     .frame(width: 350, height: 500)
                     .clipShape(RoundedRectangle(cornerRadius: 12.0))
-                
-                
-                 
                     RoundedRectButton(recipe: recipe, buttonText: "Instructions", url: recipe.sourceUrl?.asURL())
-                    
                     RoundedRectButton(recipe: recipe, buttonText: "▶️", url: recipe.youtubeUrl?.asURL())
-                
-                
             }
             
         }

@@ -36,11 +36,6 @@ struct RecipeListView: View {
             }
             .navigationTitle("Recipes")
             .background(Color(.systemGray6))
-            .onAppear {
-                Task {
-                    await viewModel.fetchRecipes()
-                }
-            }
         }
     }
 }

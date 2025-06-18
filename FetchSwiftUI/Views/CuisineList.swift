@@ -18,7 +18,6 @@ struct CuisineList: View {
             }
         }
         .navigationTitle(cuisine)
-        
     }
 }
 
